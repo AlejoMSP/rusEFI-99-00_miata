@@ -7,7 +7,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 
 | Function | Board Pin | Notes |
 | --- | --- | --- |
-| Tachometer output | B11 (labeled Coil 4) | CONFLICT - see below |
+| Tachometer output | B13 (labeled Coil 5) | moved off B11 to resolve conflict |
 | Fuel Pump output | B16 | Low Side output 4, has flyback diode D5 |
 | Fan output | B8 | Weak Low Side output 2, no flyback |
 | A/C Relay | B1 | Injector output 6 |
@@ -17,6 +17,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | Injection Output 4 | B3 | Injector output 4 |
 | Ignition Output 1 | B15 | Coil 1 |
 | Ignition Output 3 | B14 | Coil 2 |
+| Ignition Output 4 | B11 | Coil 4, sequential cyl 2 (moved here from Tachometer) |
 | Primary trigger input (crank) | C18 | VR1+, discrete, low count wheel |
 | Cam Sync / VVT input | C5 | CAM1 / HALL1 |
 | CLT ADC input | D16 | Coolant temp |
@@ -33,8 +34,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 
 | Function | Board Pin | Notes |
 | --- | --- | --- |
-| Ignition Output 4 (Coil 3, seq cyl 4) | intended B12 | not set in TS yet |
-| Ignition Output 2 (Coil 4, seq cyl 2) | conflicts with B11, needs new pin | see conflict below |
+| Ignition Output 2 (Coil 3, seq cyl 4) | intended B12 | not set in TS yet |
 
 ## Not configured (NONE in TunerStudio)
 
@@ -67,16 +67,6 @@ you actually need for this build before wiring:
 - Aux Valve #1 / #2
 - Start/Stop Button
 - Upshift / Downshift Pin
-
-## Known conflict: B11
-
-Tachometer output is currently burned to B11, which is labeled "Coil 4" on
-the board and was planned as the sequential ignition output for cylinder 2.
-Tachometer and Coil 4 cannot share B11.
-
-Decide one:
-- Move Tachometer output to a free Low Side pin, keep B11 for Coil 4 sequential
-- Drop sequential ignition entirely (stay wasted spark) and keep Tachometer on B11
 
 ## Fields that need real values before this ECU matches the wiring plan
 
