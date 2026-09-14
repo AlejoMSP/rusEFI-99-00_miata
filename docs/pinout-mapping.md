@@ -30,7 +30,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | O2 Sensor 1 Input channel | D1 (AUX1) | wideband, from harness pin 2C |
 | Oil Pressure Transducer input | C3 (AUX2) | |
 | Fuel Low Pressure Sensor Analog input | C15 (AUX3) | scaling TBD later |
-| Oil Temp Input channel | D6 (PPS1) | |
+| Oil Temp Input channel | D6 (PPS1) | GM 25036751 thermistor, see calibration below |
 | Flex fuel sensor | D5 (FLEX) | |
 | EGT1 CS pin | PA15 (SPI3) | already configured, 1 channel is enough |
 | SD CS Pin | PB6 | |
@@ -38,6 +38,19 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | CAN TX pin | PD1 | |
 
 All four ignition outputs are now burned. No pending sequential ignition items.
+
+## Oil Temp Sensor Calibration
+
+Sensor: GM / Delphi 25036751 (AC Delco 213-190) thermistor.
+
+- Pullup resistor: 2490 ohm
+- Lowest temperature: -20 C, Resistance @ LT: 28146 ohm
+- Middle temperature: 25 C, Resistance @ MT: 2752 ohm
+- Highest temperature: 100 C, Resistance @ HT: 175.3 ohm
+
+Note: these values were provided by the user from a third-party source, not
+independently verified against the GM datasheet. Confirm against the official
+datasheet if oil temp readings look off.
 
 ## Not configured (NONE in TunerStudio)
 
