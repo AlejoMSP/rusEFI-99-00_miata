@@ -73,5 +73,5 @@ schematic. Do not tie them on the same net.
 
 ## Open items before schematic is final
 
-- 1O (Alternator Field Control) still on B18 - not reviewed against factory
-  wiring diagram, carried over from the original migrated notes.
+None remaining. 1O (Alternator Field Control, GRY/RED wire) confirmed
+against factory wiring diagram, stays on B18.
