@@ -1,15 +1,15 @@
 # KiCad Connector Pinout Reference
 
 Use this while placing connector symbols and wiring the schematic. One table
-per physical connector. "Board Pin" is the rusEFI adapter board pin to wire
-to that harness pin.
+per physical connector. "rusEFI Pin" is the rusEFI adapter board pin to wire
+to that Miata harness pin.
 
 Confirmed against actual TunerStudio All IO config - see docs/pinout-mapping.md
 for the full source list and notes.
 
 ## Miata Factory Harness - Plug 1
 
-| Harness Pin | Function | Board Pin |
+| Miata Harness Pin | Function | rusEFI Pin |
 | --- | --- | --- |
 | 1A | Battery Constant +12V | Permanent +12V |
 | 1B | Switched Ignition +12V | A8 |
@@ -26,7 +26,7 @@ for the full source list and notes.
 
 ## Miata Factory Harness - Plug 2
 
-| Harness Pin | Function | Board Pin |
+| Miata Harness Pin | Function | rusEFI Pin |
 | --- | --- | --- |
 | 2A | Not used for wideband - reassign if needed | -- |
 | 2B | Intake Air Temp (IAT) | D15 |
@@ -42,7 +42,7 @@ for the full source list and notes.
 
 ## Miata Factory Harness - Plug 3
 
-| Harness Pin | Function | Board Pin |
+| Miata Harness Pin | Function | rusEFI Pin |
 | --- | --- | --- |
 | 3A / 3B / 3C | ECU Power Grounds | A3 / A4 / C8 |
 | 3E | Throttle Position (TPS) | D13 |
@@ -55,7 +55,7 @@ for the full source list and notes.
 
 ## Sequential Ignition (added, not on factory harness)
 
-| Function | Board Pin |
+| Function | rusEFI Pin |
 | --- | --- |
 | Coil 3 (Cyl 4 Seq) | B12 |
 | Coil 4 (Cyl 2 Seq) | B11 |
