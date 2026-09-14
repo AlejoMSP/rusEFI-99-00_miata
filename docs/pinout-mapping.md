@@ -65,21 +65,17 @@ you actually need for this build before wiring:
 - ETB#1 and ETB#2 (Dir, Control, Disable) - not used, no electronic throttle
 - Main Relay Pin
 - Starter Relay Pin
-- Aux ADC - free options seen: C3 AUX2, C15 Fuel Pressure/AUX3, others TBD from dropdown
+- Aux ADC - remaining free options include D9 MAP, C14 TPS2, C4 PPS2
 - Injection Output 5-12
 - Ignition Output 5-12
 - Throttle Pedal Position Channel / #2
 - Secondary trigger channel
 - TPS2 ADC input
 - MAF / MAF2 ADC input
-- AFR ADC input / AFR2 ADC input - wideband O2 is NOT wired yet
+- AFR2 ADC input
 - Baro ADC input
 - Fuel Level input
-- Clutch Down input
-- Clutch Up input
 - Brake pedal input
-- A/C Switch input
-- Aux Temperature #1 / #2 - free for Oil Temp, Rear Diff Temp
 - Aux Fast Analog
 - VVT solenoid bank 1/2 intake/exhaust
 - Aux Valve #1 / #2
@@ -88,8 +84,4 @@ you actually need for this build before wiring:
 
 ## Fields that need real values before this ECU matches the wiring plan
 
-These are required by the harness but currently NONE on the ECU:
-
-All required sensors and switches are now assigned.
-- Aux Temperature #1 - Oil Temperature
-- Aux Temperature #2 - Rear Differential Temperature, if used
+All required sensors and switches are now assigned. Nothing outstanding.
