@@ -1,69 +1,91 @@
-# Master Harness & ECU Pinout Mapping
+# ECU Pin Configuration (source: TunerStudio All IO, confirmed on hardware)
 
-## Vehicle & ECU
+This replaces the earlier migrated doc. Everything below is read directly from
+the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 
-- Vehicle: 1999-2000 Mazda Miata NB1, 1.8L, 64-pin, 3-plug factory harness
-- ECU: rusEFI Hellen / uaEFI adapter board
-- Firmware config: `set engine_type 9` (NB1 4/2 trigger decoder, crank and cam)
-- Status: bench testing with ECU simulator board, before vehicle install
+## Assigned pins
 
-## Harness to ECU pin map
+| Function | Board Pin | Notes |
+| --- | --- | --- |
+| Tachometer output | B11 (labeled Coil 4) | CONFLICT - see below |
+| Fuel Pump output | B16 | Low Side output 4, has flyback diode D5 |
+| Fan output | B8 | Weak Low Side output 2, no flyback |
+| A/C Relay | B1 | Injector output 6 |
+| Injection Output 1 | B6 | Injector output 1 |
+| Injection Output 2 | B5 | Injector output 2 |
+| Injection Output 3 | B4 | Injector output 3 |
+| Injection Output 4 | B3 | Injector output 4 |
+| Ignition Output 1 | B15 | Coil 1 |
+| Ignition Output 3 | B14 | Coil 2 |
+| Primary trigger input (crank) | C18 | VR1+, discrete, low count wheel |
+| Cam Sync / VVT input | C5 | CAM1 / HALL1 |
+| CLT ADC input | D16 | Coolant temp |
+| IAT ADC input | D15 | Intake air temp |
+| vBatt ADC input | A7 | Voltage from key |
+| TPS1 ADC input | D13 | |
+| MAP ADC input | On-board MAP | Internal sensor, no external pin |
+| Vehicle Speed input | C7 | HALL3 |
+| SD CS Pin | PB6 | |
+| CAN RX pin | PD0 | |
+| CAN TX pin | PD1 | |
 
-| Car Harness Pin | Circuit / Function | rusEFI Board Pin | Board Label / Type | Simulator Pin |
-| --- | --- | --- | --- | --- |
-| 1A | Battery Constant +12V | Permanent +12V | Constant Battery Voltage | 12V Rail |
-| 1B | Switched Ignition +12V | A8 | Switched Power Input | 12V Rail |
-| 1E | Check Engine Light (MIL) | B10 | Low-Side Output | LS10 |
-| 1I | A/C Condenser Fan Relay | B9 | Low-Side Output (OUT_LS_HOT1) | LS9 |
-| 1O | Alternator Field Control | B18 | Low-Side Output 2 | LS2 |
-| 1P | A/C Request Input | D10 | Digital Input with Pull-Up (IN_BUTTON2) | Digital Input #2 |
-| 1R | Radiator Cooling Fan | B8 | Low-Side Output (OUT_LS_HOT2) | LS8 |
-| 1S | A/C Compressor Clutch | B1 | Low-Side Output 6 (OUT_INJ6) | LS6 |
-| 1V | Neutral Switch | D2 | Digital Input with Pull-Up (IN_BUTTON1) | Digital Input #3 |
-| 2A | Wideband O2 (0-5V Signal) | D11 | Analog Input (IN_O2S) | AV11 |
-| 2B | Intake Air Temp (IAT) | D15 | Thermistor Input (IN_IAT) | AT4 / AV12 |
-| 2D | Vehicle Speed Sensor (VSS) | C6 | Digital Input (IN_VSS) | Dgt2 / UR2+ |
-| 2E | Engine Coolant Temp (CLT) | D16 | Thermistor Input (IN_CLT) | AT3 / AV10 |
-| 2F | Knock Sensor | D14 | Knock Input (IN_KNOCK) | knc1 |
-| 2H | Camshaft Position (CMP) | C5 | Digital 0-5V Hall Input (IN_CAM) | Dgt1 / UR1- |
-| 2I | Sensor +5V Power Supply | C1 | Regulated +5V Reference (+5VA) | 5V Ref |
-| 2J | Crankshaft Position (CKP) | C18 | Trigger Input (VR1+ / IN_CRANK) | VR1+ |
-| 2K | Tachometer Output | B7 | Low-Side Output (OUT_LS1) | LS1 |
-| 3A / 3B / 3C | ECU Power Grounds | A3 / A4 / C8 | Power Ground Plane | GND |
-| 3E | Throttle Position (TPS) | D13 | Analog Input (IN_TPS1) | AT1 / AV1 |
-| 3F | Sensor Signal Ground | C11 | Isolated Sensor Ground (GNDA) | GND |
-| 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | 5V Logic Ignition (OUT_IGN1) | Ign1 |
-| 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | 5V Logic Ignition (OUT_IGN2) | Ign2 |
-| 3I | Clutch Pedal Switch | C4 | Digital Input (IN_PPS2) | Digital Input #1 |
-| 3N | Fuel Pump Relay | B16 | Low-Side Output 4 | LS4 |
-| 3O | Idle Air Control (IAC) | B17 | Low-Side PWM Output 3 | LS3 |
-| 3Q | VICS Solenoid Output | B18 | Low-Side PWM Output | LS18 / LS2 |
-| 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | Injector Low-Side Outputs (OUT_INJ1-4) | Ign6-Ign9 / LS |
+## Reserved / planned, not yet burned
 
-Note: 1O and 3Q both list board pin B18 in the source data - needs a hardware recheck, only one function can live on that pin.
+| Function | Board Pin | Notes |
+| --- | --- | --- |
+| Ignition Output 4 (Coil 3, seq cyl 4) | intended B12 | not set in TS yet |
+| Ignition Output 2 (Coil 4, seq cyl 2) | conflicts with B11, needs new pin | see conflict below |
 
-## Reserved pins for future sequential ignition
+## Not configured (NONE in TunerStudio)
 
-- Coil 3 (Cyl 4 Seq.): unassigned on harness, mapped to B12 (OUT_IGN3, 5V Logic Output)
-- Coil 4 (Cyl 2 Seq.): unassigned on harness, mapped to B11 (OUT_IGN4, 5V Logic Output)
+Everything below is currently unassigned on the ECU. Confirm which of these
+you actually need for this build before wiring:
 
-## Auxiliary sensor expansion matrix
+- Narrowband O2 heater output
+- Idle Solenoid Primary / Secondary output
+- Idle Stepper Dir / Step / Enable
+- ETB#1 and ETB#2 (Dir, Control, Disable) - not used, no electronic throttle
+- Main Relay Pin
+- Starter Relay Pin
+- Aux ADC #1-8 - free for Oil Pressure, Brake Pressure, EGT, etc
+- Injection Output 5-12
+- Ignition Output 2, 4-12
+- Throttle Pedal Position Channel / #2
+- Secondary trigger channel
+- TPS2 ADC input
+- MAF / MAF2 ADC input
+- AFR ADC input / AFR2 ADC input - wideband O2 is NOT wired yet
+- Baro ADC input
+- Fuel Level input
+- Clutch Down input
+- Clutch Up input
+- Brake pedal input
+- A/C Switch input
+- Aux Temperature #1 / #2 - free for Oil Temp, Rear Diff Temp
+- Aux Fast Analog
+- VVT solenoid bank 1/2 intake/exhaust
+- Aux Valve #1 / #2
+- Start/Stop Button
+- Upshift / Downshift Pin
 
-| Aux Sensor | Sensor Signal Type | rusEFI Board Pin | Board Label / Function | Wiring Requirement |
-| --- | --- | --- | --- | --- |
-| Flex Fuel Sensor | Digital / Frequency | D5 | IN_FLEX | 10k Pull-Up to +5V Ref |
-| Brake Pressure Transducer | 0.5-4.5V Analog | C3 | IN_AUX2 | +5V Ref (C1), GND (C11) |
-| Oil Pressure Transducer | 0.5-4.5V Analog | C1 | IN_AUX1 | +5V Ref (C1), GND (C11) |
-| Oil Temperature | NTC Thermistor | C4 | IN_AUX3 | Sensor GND (C11) |
-| Rear Differential Temp | NTC Thermistor | D6 | IN_AUX4 | Sensor GND (C11) |
-| Exhaust Gas Temp (EGT) | 0-5V Analog | D1 | IN_AUX1 | External K-Type Amp (0-5V) |
+## Known conflict: B11
 
-Note: C1 and C4 each appear twice above (once as a core signal, once as an aux input) - also needs a hardware recheck.
+Tachometer output is currently burned to B11, which is labeled "Coil 4" on
+the board and was planned as the sequential ignition output for cylinder 2.
+Tachometer and Coil 4 cannot share B11.
 
-## Critical hardware rules
+Decide one:
+- Move Tachometer output to a free Low Side pin, keep B11 for Coil 4 sequential
+- Drop sequential ignition entirely (stay wasted spark) and keep Tachometer on B11
 
-- Ground isolation: keep Power Ground (GND_POWER on 3A/3B/3C) isolated from Sensor Ground (GND_SENSOR on 3F/C11) in the harness schematic.
+## Fields that need real values before this ECU matches the wiring plan
 
-## Next steps
+These are required by the harness but currently NONE on the ECU:
 
-- KiCad schematic (`rusEFI-99-00_miata`) mapping the 3 factory plugs to the rusEFI adapter header.
+- AFR ADC input - wideband O2 sensor signal, not connected yet
+- Clutch Down or Clutch Up input - clutch switch, not connected yet
+- A/C Switch input - A/C request signal, not connected yet
+- Aux ADC #1 (or any free Aux ADC) - Oil Pressure Transducer
+- Aux ADC #2 (or any free Aux ADC) - Brake Pressure Transducer, if used
+- Aux Temperature #1 - Oil Temperature
+- Aux Temperature #2 - Rear Differential Temperature, if used
