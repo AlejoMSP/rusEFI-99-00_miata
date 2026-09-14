@@ -66,6 +66,7 @@ for the full source list and notes.
 | Fuel Low Pressure Sensor | C15 (AUX3) |
 | Flex Fuel Sensor | D5 (FLEX) |
 | EGT (1 channel) | PA15 (SPI3) |
+| Brake pedal (tap from factory brake light switch) | C9 (BUTTON3) |
 
 ## Grounding rule
 
@@ -74,5 +75,11 @@ schematic. Do not tie them on the same net.
 
 ## Open items before schematic is final
 
-None remaining. 1O (Alternator Field Control, GRY/RED wire) confirmed
+None remaining on ECU pin assignment. One wiring task outstanding:
+
+- Brake pedal signal taps into the factory brake light switch circuit,
+  not the 3-plug ECU harness. Identify the actual factory wire/splice point
+  before running it to C9.
+
+1O (Alternator Field Control, GRY/RED wire) confirmed
 against factory wiring diagram, stays on B18.
