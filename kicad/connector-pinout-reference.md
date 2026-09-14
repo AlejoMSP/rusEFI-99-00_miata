@@ -25,9 +25,9 @@ for the full source list and notes.
 
 | Harness Pin | Function | Board Pin |
 | --- | --- | --- |
-| 2A | Wideband O2 (0-5V Signal) | D1 |
+| 2A | Not used for wideband - reassign if needed | -- |
 | 2B | Intake Air Temp (IAT) | D15 |
-| 2C | Wideband O2 heater / signal ground per sensor wiring | D1 (see note) |
+| 2C | Wideband O2 signal | D1 |
 | 2D | Vehicle Speed Sensor (VSS) | C7 |
 | 2E | Engine Coolant Temp (CLT) | D16 |
 | 2F | Knock Sensor | D14 |
@@ -35,11 +35,6 @@ for the full source list and notes.
 | 2I | Sensor +5V Power Supply | C1 |
 | 2J | Crankshaft Position (CKP) | C18 |
 | 2K | Tachometer Output | B13 |
-
-Note on 2C: confirmed by user as the wideband signal wire, wired to D1 AUX1
-alongside 2A. Double check your specific wideband controller's pinout - some
-use 2A for signal and 2C for heater PWM or ground reference, not two signal
-wires. Verify wire function at the controller before final crimp.
 
 ## Miata Factory Harness - Plug 3
 
@@ -78,7 +73,5 @@ schematic. Do not tie them on the same net.
 
 ## Open items before schematic is final
 
-- Confirm 2C wiring against your wideband controller's actual pinout (see
-  note above) - this is the one unverified mapping in this doc.
 - 1O (Alternator Field Control) still on B18 - not reviewed against factory
   wiring diagram, carried over from the original migrated notes.
