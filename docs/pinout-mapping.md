@@ -27,6 +27,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | TPS1 ADC input | D13 | |
 | MAP ADC input | On-board MAP | Internal sensor, no external pin |
 | Vehicle Speed input | C7 | HALL3 |
+| O2 Sensor 1 Input channel | D1 (AUX1) | wideband, from harness pin 2C |
 | SD CS Pin | PB6 | |
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
@@ -44,7 +45,7 @@ you actually need for this build before wiring:
 - ETB#1 and ETB#2 (Dir, Control, Disable) - not used, no electronic throttle
 - Main Relay Pin
 - Starter Relay Pin
-- Aux ADC #1-8 - free for Oil Pressure, Brake Pressure, EGT, etc
+- Aux ADC - free options seen: C3 AUX2, C15 Fuel Pressure/AUX3, others TBD from dropdown
 - Injection Output 5-12
 - Ignition Output 5-12
 - Throttle Pedal Position Channel / #2
@@ -69,10 +70,9 @@ you actually need for this build before wiring:
 
 These are required by the harness but currently NONE on the ECU:
 
-- AFR ADC input - wideband O2 sensor signal, not connected yet
 - Clutch Down or Clutch Up input - clutch switch, not connected yet
 - A/C Switch input - A/C request signal, not connected yet
-- Aux ADC #1 (or any free Aux ADC) - Oil Pressure Transducer
-- Aux ADC #2 (or any free Aux ADC) - Brake Pressure Transducer, if used
+- Aux ADC (any free) - Oil Pressure Transducer
+- Aux ADC (any free) - Brake Pressure Transducer, if used
 - Aux Temperature #1 - Oil Temperature
 - Aux Temperature #2 - Rear Differential Temperature, if used
