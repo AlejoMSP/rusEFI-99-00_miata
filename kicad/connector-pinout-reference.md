@@ -16,6 +16,7 @@ for the full source list and notes.
 | 1E | Check Engine Light (MIL) | B10 |
 | 1I | A/C Condenser Fan Relay | B9 |
 | 1O | Alternator Field Control | B18 |
+| Alternator Settings | Enabled, smart PID control | B18 (control output), target 14.0V, PID defaults |
 | 1P | A/C Request Input | D10 |
 | 1R | Radiator Cooling Fan | B8 |
 | 1S | A/C Compressor Clutch | B1 |
