@@ -16,6 +16,7 @@ for the full source list and notes.
 | 1E | Check Engine Light (MIL) | B10 |
 | 1F | Brake Light Switch | C9 |
 | 1I | A/C Condenser Fan Relay | B9 |
+| 1J | Rear Differential Temp | C14 (TPS2) |
 | 1O | Alternator Field Control | B18 |
 | Alternator Settings | Enabled, smart PID control | B18 (control output), target 14.0V, PID defaults |
 | 1P | A/C Request Input | D10 |
@@ -33,6 +34,7 @@ for the full source list and notes.
 | 2D | Vehicle Speed Sensor (VSS) | C7 |
 | 2E | Engine Coolant Temp (CLT) | D16 |
 | 2F | Knock Sensor | D14 |
+| 2G | Brake Pressure Transducer | C4 (PPS2) |
 | 2H | Camshaft Position (CMP) | C5 |
 | 2I | Sensor +5V Power Supply | C1 |
 | 2J | Crankshaft Position (CKP) | C18 |
@@ -67,13 +69,16 @@ for the full source list and notes.
 | Fuel Low Pressure Sensor | C15 (AUX3) |
 | Flex Fuel Sensor | D5 (FLEX) |
 | EGT (1 channel) | PA15 (SPI3) |
-| Rear Differential Temp (needs external pull-up resistor) | C14 (TPS2) |
-| Brake Pressure Transducer | C4 (PPS2) |
 
 ## Grounding rule
 
 Keep Power Ground (3A/3B/3C) isolated from Sensor Ground (3F/C11) in the
 schematic. Do not tie them on the same net.
+
+## Hardware note
+
+Rear Differential Temp (C14 TPS2) needs an external pull-up resistor added
+in the harness - this pin has no onboard pullup.
 
 ## Open items before schematic is final
 
