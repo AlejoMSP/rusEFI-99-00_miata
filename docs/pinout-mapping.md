@@ -16,7 +16,8 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | Injection Output 3 | B4 | Injector output 3 |
 | Injection Output 4 | B3 | Injector output 4 |
 | Ignition Output 1 | B15 | Coil 1 |
-| Ignition Output 3 | B14 | Coil 2 |
+| Ignition Output 2 | B14 | Coil 2 |
+| Ignition Output 3 | B12 | Coil 3, sequential cyl 4 |
 | Ignition Output 4 | B11 | Coil 4, sequential cyl 2 (moved here from Tachometer) |
 | Primary trigger input (crank) | C18 | VR1+, discrete, low count wheel |
 | Cam Sync / VVT input | C5 | CAM1 / HALL1 |
@@ -30,11 +31,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
 
-## Reserved / planned, not yet burned
-
-| Function | Board Pin | Notes |
-| --- | --- | --- |
-| Ignition Output 2 (Coil 3, seq cyl 4) | intended B12 | not set in TS yet |
+All four ignition outputs are now burned. No pending sequential ignition items.
 
 ## Not configured (NONE in TunerStudio)
 
@@ -49,7 +46,7 @@ you actually need for this build before wiring:
 - Starter Relay Pin
 - Aux ADC #1-8 - free for Oil Pressure, Brake Pressure, EGT, etc
 - Injection Output 5-12
-- Ignition Output 2, 4-12
+- Ignition Output 5-12
 - Throttle Pedal Position Channel / #2
 - Secondary trigger channel
 - TPS2 ADC input
