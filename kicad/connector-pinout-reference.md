@@ -14,6 +14,7 @@ for the full source list and notes.
 | 1A | Battery Constant +12V | Permanent +12V |
 | 1B | Switched Ignition +12V | A8 |
 | 1E | Check Engine Light (MIL) | B10 |
+| 1F | Brake Light Switch | C9 |
 | 1I | A/C Condenser Fan Relay | B9 |
 | 1O | Alternator Field Control | B18 |
 | Alternator Settings | Enabled, smart PID control | B18 (control output), target 14.0V, PID defaults |
@@ -66,7 +67,6 @@ for the full source list and notes.
 | Fuel Low Pressure Sensor | C15 (AUX3) |
 | Flex Fuel Sensor | D5 (FLEX) |
 | EGT (1 channel) | PA15 (SPI3) |
-| Brake pedal (tap from factory brake light switch) | C9 (BUTTON3) |
 
 ## Grounding rule
 
@@ -75,11 +75,6 @@ schematic. Do not tie them on the same net.
 
 ## Open items before schematic is final
 
-None remaining on ECU pin assignment. One wiring task outstanding:
-
-- Brake pedal signal taps into the factory brake light switch circuit,
-  not the 3-plug ECU harness. Identify the actual factory wire/splice point
-  before running it to C9.
-
-1O (Alternator Field Control, GRY/RED wire) confirmed
-against factory wiring diagram, stays on B18.
+None remaining. All pins confirmed, including brake switch on harness pin
+1F. 1O (Alternator Field Control, GRY/RED wire) confirmed against factory
+wiring diagram, stays on B18.
