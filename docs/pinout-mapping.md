@@ -28,6 +28,7 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | MAP ADC input | On-board MAP | Internal sensor, no external pin |
 | Vehicle Speed input | C7 | HALL3 |
 | O2 Sensor 1 Input channel | D1 (AUX1) | wideband, from harness pin 2C |
+| Oil Pressure Transducer input | C3 (AUX2) | |
 | SD CS Pin | PB6 | |
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
@@ -72,7 +73,6 @@ These are required by the harness but currently NONE on the ECU:
 
 - Clutch Down or Clutch Up input - clutch switch, not connected yet
 - A/C Switch input - A/C request signal, not connected yet
-- Aux ADC (any free) - Oil Pressure Transducer
 - Aux ADC (any free) - Brake Pressure Transducer, if used
 - Aux Temperature #1 - Oil Temperature
 - Aux Temperature #2 - Rear Differential Temperature, if used
