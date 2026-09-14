@@ -31,6 +31,8 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | Oil Pressure Transducer input | C3 (AUX2) | |
 | Fuel Low Pressure Sensor Analog input | C15 (AUX3) | scaling TBD later |
 | Oil Temp Input channel | D6 (PPS1) | |
+| Flex fuel sensor | D5 (FLEX) | |
+| EGT1 CS pin | PA15 (SPI3) | already configured, 1 channel is enough |
 | SD CS Pin | PB6 | |
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
