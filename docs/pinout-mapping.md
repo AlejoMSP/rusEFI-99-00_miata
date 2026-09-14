@@ -36,6 +36,8 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | Clutch switch input | D2 (BUTTON1) | |
 | A/C Switch input | D10 (A/C Request / BUTTON2) | |
 | Brake pedal input | C9 (BUTTON3) | for logging |
+| Rear Differential Temp Input channel | C14 (TPS2) | needs external pull-up resistor, no onboard pullup on this pin |
+| Brake Pressure Input channel | C4 (PPS2) | |
 | SD CS Pin | PB6 | |
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |

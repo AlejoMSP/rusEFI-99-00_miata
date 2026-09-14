@@ -67,6 +67,8 @@ for the full source list and notes.
 | Fuel Low Pressure Sensor | C15 (AUX3) |
 | Flex Fuel Sensor | D5 (FLEX) |
 | EGT (1 channel) | PA15 (SPI3) |
+| Rear Differential Temp (needs external pull-up resistor) | C14 (TPS2) |
+| Brake Pressure Transducer | C4 (PPS2) |
 
 ## Grounding rule
 
