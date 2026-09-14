@@ -33,6 +33,8 @@ the ECU's own TunerStudio All IO 1/3, 2/3, 3/3 screens.
 | Oil Temp Input channel | D6 (PPS1) | GM 25036751 thermistor, see calibration below |
 | Flex fuel sensor | D5 (FLEX) | |
 | EGT1 CS pin | PA15 (SPI3) | already configured, 1 channel is enough |
+| Clutch switch input | D2 (BUTTON1) | |
+| A/C Switch input | D10 (A/C Request / BUTTON2) | |
 | SD CS Pin | PB6 | |
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
@@ -88,8 +90,6 @@ you actually need for this build before wiring:
 
 These are required by the harness but currently NONE on the ECU:
 
-- Clutch Down or Clutch Up input - clutch switch, not connected yet
-- A/C Switch input - A/C request signal, not connected yet
-- Aux ADC (any free) - Brake Pressure Transducer, if used
+All required sensors and switches are now assigned.
 - Aux Temperature #1 - Oil Temperature
 - Aux Temperature #2 - Rear Differential Temperature, if used
