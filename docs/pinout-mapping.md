@@ -13,17 +13,17 @@ reuse existing wires without repinning the factory connector.
 
 | Miata Harness Pin | Function | rusEFI Pin | Wire Color |
 | --- | --- | --- | --- |
-| 1A | Battery Constant +12V | Permanent +12V | -- |
-| 1B | Switched Ignition +12V | A8 | -- |
-| 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | -- |
-| 1F | Brake Light Switch | C9 (BUTTON3) | -- |
-| 1I | A/C Condenser Fan Relay | B9 | -- |
-| 1J | Rear Differential Temp | C14 (TPS2) | -- |
-| 1O | Alternator Field Control | B18 | GRY/RED |
-| 1P | A/C Request Input | D10 (A/C Request / BUTTON2) | -- |
-| 1R | Radiator Cooling Fan | B8 | -- |
-| 1S | A/C Compressor Clutch | B1 | -- |
-| 1V | Neutral Switch | C6 (HALL2) | -- |
+| 1A | Battery Constant +12V | Permanent +12V | L/R |
+| 1B | Switched Ignition +12V | A8 | W/R |
+| 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | W/L |
+| 1F | Brake Light Switch | C9 (BUTTON3) | G |
+| 1I | A/C Condenser Fan Relay | B9 | L/W |
+| 1J | Rear Differential Temp | C14 (TPS2) | -- (empty cavity in stock harness) |
+| 1O | Alternator Field Control | B18 | GY/R |
+| 1P | A/C Request Input | D10 (A/C Request / BUTTON2) | LG/B |
+| 1R | Radiator Cooling Fan | B8 | R/G |
+| 1S | A/C Compressor Clutch | B1 | L/B |
+| 1V | Neutral Switch | C6 (HALL2) | V |
 
 Alternator Settings: Enabled, smart PID control, control output B18, target
 14.0V, PID defaults.
@@ -33,16 +33,16 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | Miata Harness Pin | Function | rusEFI Pin | Wire Color |
 | --- | --- | --- | --- |
 | 2A | Not used for wideband - free, reassign if needed | -- | R/G |
-| 2B | Intake Air Temp (IAT) | D15 | -- |
-| 2C | Wideband O2 signal | D1 (AUX1) | -- |
-| 2D | Vehicle Speed Sensor (VSS) | C7 | -- |
-| 2E | Engine Coolant Temp (CLT) | D16 | -- |
-| 2F | Knock Sensor | D14 | -- |
-| 2G | Brake Pressure Transducer | C4 (PPS2) | -- |
-| 2H | Camshaft Position (CMP) | C5 | -- |
-| 2I | Sensor +5V Power Supply | C1 | -- |
-| 2J | Crankshaft Position (CKP) | C18 | -- |
-| 2K | Tachometer Output | B13 (Coil 5 label) | -- |
+| 2B | Intake Air Temp (IAT) | D15 | P/L |
+| 2C | Wideband O2 signal | D1 (AUX1) | L |
+| 2D | Vehicle Speed Sensor (VSS) | C7 | W/B |
+| 2E | Engine Coolant Temp (CLT) | D16 | R/L |
+| 2F | Knock Sensor | D14 | W |
+| 2G | Brake Pressure Transducer | C4 (PPS2) | -- (empty cavity in stock harness) |
+| 2H | Camshaft Position (CMP) | C5 | GY/L |
+| 2I | Sensor +5V Power Supply | C1 | LG/R |
+| 2J | Crankshaft Position (CKP) | C18 | GY/R |
+| 2K | Tachometer Output | B13 (Coil 5 label) | G/O |
 | 2L | EGT | PA15 (SPI3) | LG/B |
 | 2M | Flex Fuel Sensor | D5 (FLEX) | V |
 | 2N | Fuel Low Pressure Sensor | C15 (AUX3) | W/G |
@@ -53,16 +53,16 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 
 | Miata Harness Pin | Function | rusEFI Pin | Wire Color |
 | --- | --- | --- | --- |
-| 3A / 3B / 3C | ECU Power Grounds | A3 / A4 / C8 | -- |
-| 3E | Throttle Position (TPS) | D13 | -- |
-| 3F | Sensor Signal Ground | C11 | -- |
+| 3A / 3B / 3C | ECU Power Grounds | A3 / A4 / C8 | B/Y / B/Y / B/L |
+| 3E | Throttle Position (TPS) | D13 | G/B |
+| 3F | Sensor Signal Ground | C11 | B/R |
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
 | 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
-| 3N | Fuel Pump Relay | B16 | -- |
+| 3N | Fuel Pump Relay | B16 | LG |
 | 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
 | 3T | Coil 4 (Cyl 2 Seq) | B11 | GY/B |
-| 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | -- |
+| 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | Y/B, V/G, Y/R, Y/G |
 
 ### Free spare pins not yet used
 
@@ -83,6 +83,7 @@ now-deleted emissions equipment (EGR, purge canister, etc):
 | 3R | -- (marked spare on diagram) |
 | 3P | -- (marked spare on diagram) |
 | 3D | -- (marked spare on diagram) |
+| 1C | -- (marked spare on diagram) |
 
 1N status is unclear - user first said it's taken, then listed it as a
 freed emissions pin. Confirm before using it. 1M is taken, do not reuse.
