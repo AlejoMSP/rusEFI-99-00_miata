@@ -136,6 +136,8 @@ datasheet if oil temp readings look off.
   carried Mazda's old single-wire diagnostic protocol (pre-CAN on this
   99-00 model), not real CAN. Using them for rusEFI CAN breaks
   compatibility with any factory Mazda diagnostic tool on this circuit.
+  Generic OBD-II scanner support (via CAN on connector pins 6/14) was
+  considered and declined - not worth running separate wires for.
 - Speedometer output not needed - handled directly by the transmission,
   not the ECU.
 - Rear Differential Temp (C14 TPS2, harness pin 1J) needs an external
