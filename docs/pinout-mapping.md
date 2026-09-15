@@ -15,7 +15,7 @@ reuse existing wires without repinning the factory connector.
 | --- | --- | --- | --- |
 | 1A | Battery Constant +12V | Permanent +12V | -- |
 | 1B | Switched Ignition +12V | A8 | -- |
-| 1E | Check Engine Light (MIL) - NOT YET CONFIGURED on ECU | B10 (proposed) | -- |
+| 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | -- |
 | 1F | Brake Light Switch | C9 (BUTTON3) | -- |
 | 1I | A/C Condenser Fan Relay | B9 | -- |
 | 1J | Rear Differential Temp | C14 (TPS2) | -- |
@@ -89,11 +89,7 @@ freed emissions pin. Confirm before using it. 1M is taken, do not reuse.
 
 ### Open questions - not yet answered
 
-- Check Engine Light (MIL, harness pin 1E) is NOT configured on the ECU.
-  Confirmed by checking all 3 All IO screens - no MIL/CEL field exists there.
-  rusEFI calls this setting `malfunctionIndicatorPin`, found elsewhere in
-  TunerStudio (not All IO). B10 is free and coil-capable if you want to use
-  it, but needs to be set deliberately.
+None.
 
 ### Grounding rule
 
