@@ -151,8 +151,9 @@ you actually need before wiring:
 - Idle Solenoid Primary / Secondary output
 - Idle Stepper Dir / Step / Enable
 - ETB#1 and ETB#2 (Dir, Control, Disable) - not used, no electronic throttle
-- Main Relay Pin
+- Main Relay Pin (Main relay output, confirmed NONE via Outputs screen)
 - Starter Relay Pin
+- Speedometer output (confirmed NONE via Outputs screen)
 - Injection Output 5-12
 - Ignition Output 5-12
 - Throttle Pedal Position Channel / #2
