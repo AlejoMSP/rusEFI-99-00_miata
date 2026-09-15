@@ -15,10 +15,12 @@ reuse existing wires without repinning the factory connector.
 | --- | --- | --- | --- |
 | 1A | Battery Constant +12V | Permanent +12V | L/R |
 | 1B | Switched Ignition +12V | A8 | W/R |
+| 1D | CAN Bus High (repurposed Data Link Connector wire) | PD0 | G/W |
 | 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | W/L |
 | 1F | Brake Light Switch | C9 (BUTTON3) | G |
 | 1I | A/C Condenser Fan Relay | B9 | L/W |
 | 1J | Rear Differential Temp | C14 (TPS2) | -- (empty cavity in stock harness) |
+| 1L | CAN Bus Low (repurposed Data Link Connector wire) | PD1 | BR/Y |
 | 1O | Alternator Field Control | B18 | GY/R |
 | 1P | A/C Request Input | D10 (A/C Request / BUTTON2) | LG/B |
 | 1R | Radiator Cooling Fan | B8 | R/G |
@@ -76,8 +78,6 @@ now-deleted emissions equipment (EGR, purge canister, etc):
 | 1U | V/Y |
 | 3Q | W/L |
 | 2A | R/G |
-| 1D | G/W |
-| 1L | BR/Y |
 | 3U | L/O |
 | 1K | L/W |
 | 3R | -- (marked spare on diagram) |
@@ -105,8 +105,6 @@ These are board-only settings with no corresponding Miata harness pin.
 | --- | --- | --- |
 | MAP ADC input | On-board MAP | Internal sensor, no external pin |
 | SD CS Pin | PB6 | |
-| CAN RX pin | PD0 | |
-| CAN TX pin | PD1 | |
 
 ## Confirmed free pins on the rusEFI board (not yet used)
 
@@ -134,6 +132,10 @@ datasheet if oil temp readings look off.
 
 ## Hardware notes
 
+- CAN Bus (1D, 1L) reuses the factory Data Link Connector wires. These
+  carried Mazda's old single-wire diagnostic protocol (pre-CAN on this
+  99-00 model), not real CAN. Using them for rusEFI CAN breaks
+  compatibility with any factory Mazda diagnostic tool on this circuit.
 - Speedometer output not needed - handled directly by the transmission,
   not the ECU.
 - Rear Differential Temp (C14 TPS2, harness pin 1J) needs an external
