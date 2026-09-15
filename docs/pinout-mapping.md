@@ -23,7 +23,7 @@ reuse existing wires without repinning the factory connector.
 | 1P | A/C Request Input | D10 (A/C Request / BUTTON2) | -- |
 | 1R | Radiator Cooling Fan | B8 | -- |
 | 1S | A/C Compressor Clutch | B1 | -- |
-| 1V | Neutral Switch | D2 | -- |
+| 1V | Neutral Switch | C6 (HALL2) | -- |
 
 Alternator Settings: Enabled, smart PID control, control output B18, target
 14.0V, PID defaults.
@@ -58,7 +58,7 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | 3F | Sensor Signal Ground | C11 | -- |
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
-| 3I | Clutch Pedal Switch | D2 (BUTTON1) | BR/W |
+| 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
 | 3N | Fuel Pump Relay | B16 | -- |
 | 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
 | 3T | Coil 4 (Cyl 2 Seq) | B11 | GY/B |
@@ -89,11 +89,7 @@ freed emissions pin. Confirm before using it. 1M is taken, do not reuse.
 
 ### Open questions - not yet answered
 
-- 3I (Clutch Pedal Switch, BR/W) - user wants to repurpose for launch
-  control input (currently used for clutch pedal switch, D2). Options:
-  share D2 for both, or move launch control to a free pin (3V, 3J, 1U).
-- 1V (Neutral Switch, D2) - user asked if this can be used for anything
-  tune-related. Not yet answered.
+None. Neutral Switch moved off D2 (conflict with Clutch/Launch) to C6 HALL2.
 
 ### Grounding rule
 
