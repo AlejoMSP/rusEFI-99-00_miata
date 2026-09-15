@@ -107,6 +107,16 @@ These are board-only settings with no corresponding Miata harness pin.
 | CAN RX pin | PD0 | |
 | CAN TX pin | PD1 | |
 
+## Confirmed free pins on the rusEFI board (not yet used)
+
+Confirmed against the board's own connector CSVs (connector_B/C/D):
+
+| Pin | Label | Notes |
+| --- | --- | --- |
+| D9 | MAP | External MAP input, unused since on-board MAP is selected |
+| B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
+| B17 | Low Side 3 / Injector 7 | Low side output, has flyback diode |
+
 ## Oil Temp Sensor Calibration
 
 Sensor: GM / Delphi 25036751 (AC Delco 213-190) thermistor. Input channel
