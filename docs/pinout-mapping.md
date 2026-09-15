@@ -137,6 +137,8 @@ datasheet if oil temp readings look off.
 
 ## Hardware notes
 
+- Speedometer output not needed - handled directly by the transmission,
+  not the ECU.
 - Rear Differential Temp (C14 TPS2, harness pin 1J) needs an external
   pull-up resistor - this pin has no onboard pullup.
 - Fuel Low Pressure Sensor (C15 AUX3, harness pin 2N) scaling not yet set,
@@ -151,9 +153,8 @@ you actually need before wiring:
 - Idle Solenoid Primary / Secondary output
 - Idle Stepper Dir / Step / Enable
 - ETB#1 and ETB#2 (Dir, Control, Disable) - not used, no electronic throttle
-- Main Relay Pin (Main relay output, confirmed NONE via Outputs screen)
+- Main Relay Pin - not needed for this build (decided against, factory ignition switch handles power)
 - Starter Relay Pin
-- Speedometer output (confirmed NONE via Outputs screen)
 - Injection Output 5-12
 - Ignition Output 5-12
 - Throttle Pedal Position Channel / #2
