@@ -454,6 +454,11 @@ Common injector power feed: WHT-RED (shared supply wire to both injector pairs, 
 
 ## Notes
 
+- **Caution:** even where 1999-2000 (NB1) and 2001-2005 (NB2) share the same
+  pin position/letter, Mazda moved some functions around between these
+  generations. A matching pin letter does NOT guarantee a matching function
+  across the NB1/NB2 boundary - always confirm function against the correct
+  year's diagram, never assume by pin position alone.
 - 1994 and 1999 diagrams did not give a clean pin-to-function match for several
   sensors (MAF specifically for 1999, throttle/coolant for 1994 EGR area) - left
   as "-" rather than guessed.
