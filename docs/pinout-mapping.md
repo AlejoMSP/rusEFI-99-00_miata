@@ -4,6 +4,9 @@ Everything below is read directly from the ECU's own TunerStudio All IO
 1/3, 2/3, 3/3 screens, cross-referenced against the Miata factory wiring
 diagram (Mazda B-1a/B-1b/B-1c).
 
+See also [OEM Pinout Reference](oem-pinout-reference.md) for how this NB1
+(1999-2000) pinout compares against other Miata model years.
+
 ## Miata Harness to rusEFI Pin Map
 
 "Wire Color" is the factory wire color at that pin, so added sensors can
