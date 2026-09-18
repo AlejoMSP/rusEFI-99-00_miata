@@ -197,6 +197,196 @@ separately verifying against the physical connector.
 **Flag:** pin 3J lists "High Current 1 (VVT)" - 94-95 Miatas have no VVT. Worth
 confirming this diagram is actually labeled for the right year before relying on it.
 
+## 1999-2005 Full Pin Lists
+
+**1999 (NB1) - Connector 1 (1A-1V)**
+
+| Pin | Wire | Function |
+|---|---|---|
+| 1A | BLU/RED | - |
+| 1B | WHT/RED | - |
+| 1D | GRN/WHT | - |
+| 1E | WHT/BLU | - |
+| 1F | GRN | - |
+| 1G | BRN | - |
+| 1H | GRN/RED | - |
+| 1I | BLU/WHT | Cooling fans system |
+| 1J | WHT/GRN | - |
+| 1K | BRN/YEL | - |
+| 1L | BRN/YEL | - |
+| 1N | PNK/BLK | Transmissions system |
+| 1O | GRY/RED | Starting/charging system |
+| 1P | LT GRN/BLK | - |
+| 1Q | BRN/RED | A/C system |
+| 1R | RED/GRN | Starting/charging system |
+| 1S | BLU/BLK | Cooling fans system |
+| 1T | GRY | A/C system |
+| 1U | VIO/YEL | Starting/charging system |
+| 1V | VIO | - |
+
+**1999 (NB1) - Connector 2 (2A-2P)**
+
+| Pin | Wire |
+|---|---|
+| 2A | RED/GRN |
+| 2B | PNK/BLU |
+| 2C | BLU |
+| 2D | WHT/BLK |
+| 2E | RED/BLU |
+| 2F | WHT |
+| 2H | GRY/BLU |
+| 2I | LT GRN/RED |
+| 2J | GRY/RED |
+| 2K | GRN/ORG |
+| 2L | LT GRN/BLK |
+| 2M | VIO |
+| 2N | WHT/GRN |
+| 2O | PNK/BLK |
+| 2P | PNK |
+
+**1999 (NB1) - Connector 3 (3A-3Z)**
+
+| Pin | Wire |
+|---|---|
+| 3A | BLK/YEL |
+| 3B | BLK/YEL |
+| 3C | BLK/BLU |
+| 3D | GRN/BLK |
+| 3E | BLK/RED |
+| 3G | BRN/YEL |
+| 3H | BRN |
+| 3I | BRN/WHT |
+| 3J | RED |
+| 3K | BRN/BLK |
+| 3L | BRN/RED |
+| 3M | ORG |
+| 3N | LT GRN |
+| 3O | VIO/RED |
+| 3P | WHT/BLK |
+| 3Q | WHT/BLU |
+| 3R | VIO/YEL |
+| 3S | GRY |
+| 3T | GRY/BLK |
+| 3U | BLU/ORG |
+| 3V | RED/YEL |
+| 3W | YEL/BLK |
+| 3X | VIO/GRN |
+| 3Y | YEL/RED |
+| 3Z | YEL/GRN |
+
+Fuel injectors (1999): 4 = YEL/GRN, 3 = WHT/RED, 2 = WHT/GRN, 1 = YEL/BLK, common WHT/BLU.
+IAC solenoid: VIO/RED, ORG. These wire colors were traced to specific
+components but not confidently pinned to specific connector-3 letters above
+- treat as component-side confirmed, connector-letter-side unconfirmed.
+
+Two additional numbered sensor harnesses (1-25 sensor side, 1-21 instrument/PCM
+side) were read for wire color only - I could not confidently tie most of
+those numbers to a specific function, so they're not reproduced here as a
+pin table. Re-send those two pages zoomed on the function labels if you want
+them added.
+
+**2000 (NB1) - status: incomplete**
+
+The 2000 source was a proper Mazda FSM with a shared "B1-01 PCM" pin grid
+(rows 1U/1S/1Q... /3Y/3W/3U...) repeated across three sheets, but that grid
+was too dense to read confidently letter-by-letter, so it was never
+transcribed - flagged at the time rather than guessed. What *is* confirmed
+for 2000 is the component-level pin/wire/connector-ID list (B1-02 through
+B1-31, e.g. "B1-12 Fuel injector 1 (INJ): Y/B, W/L") already in the function
+tables above. If you want the full 2000 PCM letter grid, that FSM page needs
+to be re-sent cropped and zoomed on just the B1-01 table rows.
+
+**2001-2002: no data.** Nothing has been sent for these years yet.
+
+**2003 (NB2) - Connector 2 (2A-2R)**
+
+| Pin | Wire | Function |
+|---|---|---|
+| 2A | YEL/BLK | Cooling fans |
+| 2B | RED/YEL | Cooling fans |
+| 2C | BLU/WHT | Cooling fans |
+| 2D | VIO/GRN | - |
+| 2E | LT GRN | - |
+| 2F | WHT/GRN | - |
+| 2G | YEL/RED | - |
+| 2H | PNK/BLK | - |
+| 2I | PNK | - |
+| 2J | YEL/GRN | - |
+| 2K | BLU/BLK | A/C system |
+| 2L | RED/WHT | - |
+| 2M | RED/WHT | - |
+| 2N | BLK/WHT | - |
+| 2O | RED | - |
+| 2P | ORG | - |
+| 2Q | VIO/RED | - |
+| 2R | WHT/BLU | - |
+
+**2003 (NB2) - Connector 3 (3A-3Z)**
+
+| Pin | Wire | Function |
+|---|---|---|
+| 3A | BLK | - |
+| 3B | BLK/RED | - |
+| 3C | GRN/YEL | - |
+| 3D | GRY/BLK | - |
+| 3F | BRN/WHT | - |
+| 3H | BLU/ORG | - |
+| 3I | BLK/YEL | - |
+| 3J | BLK/ORG | - |
+| 3K | YEL/BLK | - |
+| 3M | GRY/RED | Charging system |
+| 3O | GRN/ORG | - |
+| 3P | WHT/BLK | - |
+| 3Q | GRN/WHT | - |
+| 3S | RED/BLK | Anti-theft (immobilizer) |
+| 3T | GRN/RED | - |
+| 3U | BRN/RED | - |
+| 3V | GRY/BLU | - |
+| 3Y | VIO/WHT | - |
+
+**2003 (NB2) - Connector 4 (4A-4AH)**
+
+| Pin | Wire | Function |
+|---|---|---|
+| 4A | BLK/BLU | Instrument cluster |
+| 4B | GRN | Instrument cluster |
+| 4C | BRN | Instrument cluster |
+| 4D | YEL | Instrument cluster |
+| 4E | BRN/YEL | Instrument cluster |
+| 4F | LT GRN/BLK | A/C system |
+| 4H | VIO | (M/T) |
+| 4I | WHT/GRN | (M/T) |
+| 4J | ORG | - |
+| 4L | LT GRN/RED | - |
+| 4M | WHT | - |
+| 4N | PNK/BLU | - |
+| 4O | BLK/RED | - |
+| 4P | RED/BLU | - |
+| 4Q | VIO/YEL | - |
+| 4S | BLK/WHT | - |
+| 4T | GRY | Charging system |
+| 4V | GRN/BLK - see flag below | - |
+| 4W | BLU | - |
+| 4X | PNK | - |
+| 4Z | PNK/BLK | (W/A/T) |
+| 4AA | RED | - |
+| 4AC | VIO/RED | (W/A/T) |
+| 4AD | BRN/BLK | - |
+| 4AE | BLU/YEL | - |
+| 4AF | WHT/RED | - |
+| 4AG | BLU/RED | - |
+| 4AH | RED/GRN | - |
+
+**Flag - conflict on pin 4V:** the original 2003 diagram read gave 4V =
+GRN/BLK with no function identified. You later told me TPS is pin 4V, and I
+added "TPS = 4V (RED/BLU)" to the Air/Fuel Metering table above - but RED/BLU
+doesn't match the GRN/BLK originally read at that same pin. One of these is
+wrong. Since I didn't independently re-verify the diagram before accepting
+the correction, don't treat either value as confirmed until this is
+resolved - re-check the 2003 diagram at pin 4V directly.
+
+**2004-2005: no data.** Nothing has been sent for these years yet.
+
 ## 90-93 Full Pin List (1.6L, 2-connector ECU)
 
 Direct pin-letter transcription, confirmed against both the 90 and 91-93 factory
