@@ -64,9 +64,8 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
 | 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
-| 3M | Idle Air Control Solenoid Secondary | B7 | O |
 | 3N | Fuel Pump Relay | B16 | LG |
-| 3O | Idle Air Control Solenoid Primary | B17 | V/R |
+| 3O | Idle Air Control Solenoid | B17 | V/R |
 | 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
 | 3T | Coil 4 (Cyl 2 Seq) | B11 | GY/B |
 | 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | Y/B, V/G, Y/R, Y/G |
@@ -118,6 +117,7 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 | Pin | Label | Notes |
 | --- | --- | --- |
 | D9 | MAP | External MAP input, unused since on-board MAP is selected |
+| B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
 
 ## Oil Temp Sensor Calibration
 
@@ -135,9 +135,10 @@ datasheet if oil temp readings look off.
 
 ## Hardware notes
 
-- IAC solenoid's 3rd wire is +12V power, not a control signal - ties into
-  switched ignition power (can share the 1B/A8 circuit), no dedicated
-  rusEFI pin needed.
+- IAC solenoid is 3-pin: 1 signal wire (3O, to B17), plus power and ground.
+  Power ties into switched ignition power (can share 1B/A8 circuit), ground
+  ties into Power Ground (3A/3B/3C, not Sensor Ground - this is an actuator,
+  not a sensor). Neither power nor ground needs a dedicated rusEFI pin.
 - CAN Bus (1D, 1L) reuses the factory Data Link Connector wires. These
   carried Mazda's old single-wire diagnostic protocol (pre-CAN on this
   99-00 model), not real CAN. Using them for rusEFI CAN breaks
