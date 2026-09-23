@@ -14,7 +14,7 @@ supercharger, near the air filter.
 - Pullup resistor: 2490 ohm
 - Lowest temperature: 5 C, Resistance @ LT: 4829 ohm
 - Middle temperature: 24 C, Resistance @ MT: 1994 ohm
-- Highest temperature: 39 C, Resistance @ HT: 1010 ohm
+- Highest temperature: 41.5 C, Resistance @ HT: 1000 ohm
 
 ## Oil Temperature (GM / Delphi 25036751)
 
