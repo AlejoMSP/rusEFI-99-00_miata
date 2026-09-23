@@ -22,7 +22,7 @@ reuse existing wires without repinning the factory connector.
 | 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | W/L |
 | 1F | Brake Light Switch | C9 (BUTTON3) | G |
 | 1I | A/C Condenser Fan Relay | B9 | L/W |
-| 1J | Rear Differential Temp | C14 (TPS2) | -- (empty cavity in stock harness) |
+| 1J | (free - was Rear Differential Temp, removed to free C14 for ETB TPS2) | -- | -- |
 | 1L | CAN Bus Low (repurposed Data Link Connector wire) | PD1 | BR/Y |
 | 1O | Alternator Field Control | B18 | GY/R |
 | 1P | A/C Request Input | D10 (A/C Request / BUTTON2) | LG/B |
@@ -59,7 +59,7 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | Miata Harness Pin | Function | rusEFI Pin | Wire Color |
 | --- | --- | --- | --- |
 | 3A / 3B / 3C | ECU Power Grounds | A3 / A4 / C8 | B/Y / B/Y / B/L |
-| 3E | Throttle Position (TPS) | D13 | G/B |
+| 3E | Throttle Position - becomes ETB Primary TPS with DBW conversion (in progress) | D13 | G/B |
 | 3F | Sensor Signal Ground | C11 | B/R |
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
@@ -118,6 +118,39 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 | --- | --- | --- |
 | B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
 
+## Drive-By-Wire ETB Conversion (in progress)
+
+Throttle body: Ford ETC module 12C508, connector C1189 (BK). Confirmed
+pinout from the throttle body's own connector, not yet from rusEFI's side:
+
+| TB Pin | Circuit | Function |
+| --- | --- | --- |
+| 1 | BN | TPS1 Negative Slope |
+| 2 | BU-OG | ETC Return (ground) |
+| 3 | YE | ETC Reference (+5V) |
+| 4 | GN-VT | TPS2 Positive Slope |
+| 5 | YE-VT (18ga) | Motor + (TACM+) |
+| 6 | BU-GN (18ga) | Motor - (TACM-) |
+
+rusEFI-side assignment so far:
+
+| Function | rusEFI Pin | Status |
+| --- | --- | --- |
+| TPS1 (Primary) | D13 | confirmed, reused from stock cable-throttle TPS pin |
+| TPS2 (Secondary) | C14 (TPS2) | reserved - freed by removing Rear Diff Temp |
+| Motor driver (DC1_PWM, DC1_DIR, DC1_DIS, OUT_DC1+/-) | unknown | NOT yet found - not on connector B/C/D CSVs, likely on connector A (no data) or find via ETB#1 Dir #1/Dir #2/Control/Disable dropdowns in TunerStudio |
+| ETC Reference (+5V) | -- | use existing Sensor +5V (C1) or dedicated ref, TBD |
+| ETC Return (ground) | -- | use Sensor Signal Ground (C11), TBD |
+
+Still open:
+- Motor driver pins unknown - need TunerStudio ETB#1 dropdown screenshots or
+  connector_A.csv
+- Accelerator pedal position sensor (dual channel) not yet planned - needs
+  2 more analog inputs, none currently free
+- rusEFI safety requirement: both TPS1 and TPS2 must be wired (per rusEFI
+  Electronic Throttle Body Configuration Guide) - confirmed decision to
+  wire both, not just one
+
 ## Sensor Calibrations
 
 See [Sensor Calibrations](sensor-calibrations.md) for thermistor curves
@@ -137,8 +170,6 @@ See [Sensor Calibrations](sensor-calibrations.md) for thermistor curves
   considered and declined - not worth running separate wires for.
 - Speedometer output not needed - handled directly by the transmission,
   not the ECU.
-- Rear Differential Temp (C14 TPS2, harness pin 1J) needs an external
-  pull-up resistor - this pin has no onboard pullup.
 - Fuel Low Pressure Sensor (C15 AUX3, harness pin 2N) scaling not yet set,
   deferred until sensor voltage/pressure spec is confirmed.
 
