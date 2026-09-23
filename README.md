@@ -13,6 +13,7 @@ Set via CLI: `set engine_type 9` (NB1 4/2 trigger decoder pattern for crank and 
 ## Docs
 
 - [Pinout Mapping](docs/pinout-mapping.md) - full harness to ECU pin map, aux sensors, reserved pins, wiring rules.
+- [Sensor Calibrations](docs/sensor-calibrations.md) - thermistor curves and other analog sensor calibration values.
 - [OEM Pinout Reference](docs/oem-pinout-reference.md) - stock Miata ECU pinout compared across all model years (1990-2003), for cross-checking.
 
 ## Next steps

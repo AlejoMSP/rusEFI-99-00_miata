@@ -118,19 +118,10 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 | --- | --- | --- |
 | B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
 
-## Oil Temp Sensor Calibration
+## Sensor Calibrations
 
-Sensor: GM / Delphi 25036751 (AC Delco 213-190) thermistor. Input channel
-D6 (PPS1), harness pin 2P.
-
-- Pullup resistor: 2490 ohm
-- Lowest temperature: -20 C, Resistance @ LT: 28146 ohm
-- Middle temperature: 25 C, Resistance @ MT: 2752 ohm
-- Highest temperature: 100 C, Resistance @ HT: 175.3 ohm
-
-Note: these values were provided by the user from a third-party source, not
-independently verified against the GM datasheet. Confirm against the official
-datasheet if oil temp readings look off.
+See [Sensor Calibrations](sensor-calibrations.md) for thermistor curves
+(Oil Temp, Ambient Temp) and other analog sensor calibration values.
 
 ## Hardware notes
 
