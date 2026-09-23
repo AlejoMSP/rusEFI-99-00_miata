@@ -64,7 +64,6 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
 | 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
-| 3J | Ambient Temperature | D9 (MAP label, repurposed) | R |
 | 3N | Fuel Pump Relay | B16 | LG |
 | 3O | Idle Air Control Solenoid | B17 | V/R |
 | 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
@@ -80,10 +79,9 @@ now-deleted emissions equipment (EGR, purge canister, etc):
 
 | Pin | Wire Color |
 | --- | --- |
-| 1U | V/Y |
-| 3Q | W/L |
 | 2A | R/G |
 | 1K | L/W |
+| 3J | R |
 | 3R | -- (marked spare on diagram) |
 | 3P | -- (marked spare on diagram) |
 | 3D | -- (marked spare on diagram) |
@@ -117,6 +115,16 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 | Pin | Label | Notes |
 | --- | --- | --- |
 | B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
+
+**Warning:** TunerStudio caught a real conflict between D9 (labeled "MAP" in
+the CSV/dropdown) and C14 (labeled "TPS2") - both are actually the same
+physical MCU pin (PB0), despite being listed as separate connector
+positions. The connector_B/C/D CSVs and TunerStudio's own dropdown labels
+are not fully reliable at the physical-pin level - a pin showing as free in
+the dropdown list can still collide with another pin already in use. Ambient
+Temp (previously on D9) was dropped after hitting this conflict with ETB
+TPS2 (C14). Treat any "free" pin from this doc as unconfirmed until it's
+actually been set and burned without error in TunerStudio.
 
 ## Drive-By-Wire ETB Conversion
 
