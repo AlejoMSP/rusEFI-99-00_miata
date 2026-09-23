@@ -16,16 +16,21 @@ supercharger, near the air filter.
 - Middle temperature: 24 C, Resistance @ MT: 1994 ohm
 - Highest temperature: 41.5 C, Resistance @ HT: 1000 ohm
 
-## Oil Temperature (GM / Delphi 25036751)
+## Oil Temperature (ACDelco Gold 213-4514 / 19236568)
 
-Input channel: D6 (PPS1), harness pin 2P. Sensor: GM / Delphi 25036751
-(AC Delco 213-190) thermistor.
+Input channel: D6 (PPS1), harness pin 2P.
 
 - Pullup resistor: 2490 ohm
-- Lowest temperature: -20 C, Resistance @ LT: 28146 ohm
-- Middle temperature: 25 C, Resistance @ MT: 2752 ohm
-- Highest temperature: 100 C, Resistance @ HT: 175.3 ohm
+- Lowest temperature: -40 C, Resistance @ LT: 100700 ohm
+- Middle temperature: 20 C, Resistance @ MT: 2868 ohm
+- Highest temperature: 100 C, Resistance @ HT: 177 ohm
 
-Note: these values were provided by the user from a third-party source, not
-independently verified against the GM datasheet. Confirm against the official
-datasheet if oil temp readings look off.
+Note: source data listed an alternate middle point (30 C / 1796 ohm) instead
+of the 20 C / 2868 ohm point used above - the 20 C point was used since it
+was listed first. Confirm against official datasheet if oil temp readings
+look off.
+
+## Air Temperature Sensors - GM 25036751 (AC Delco 213-190)
+
+This GM part is used for air temperature only (Ambient Temperature above),
+not oil temperature - previously mislabeled in this doc, corrected.
