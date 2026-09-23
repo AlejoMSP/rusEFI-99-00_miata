@@ -64,10 +64,13 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | 3G | Coil 1 (Cyl 1 & 4 Wasted) | B15 | BR/Y |
 | 3H | Coil 2 (Cyl 2 & 3 Wasted) | B14 | BR |
 | 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
+| 3J | Ambient Temperature | D9 (MAP label, repurposed) | R |
 | 3N | Fuel Pump Relay | B16 | LG |
 | 3O | Idle Air Control Solenoid | B17 | V/R |
 | 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
 | 3T | Coil 4 (Cyl 2 Seq) | B11 | GY/B |
+| 3U | CAN Bus High tap - to ESP32 CAN display | PD0 (same bus as 1D) | L/O |
+| 3V | CAN Bus Low tap - to ESP32 CAN display | PD1 (same bus as 1L) | R/Y |
 | 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | Y/B, V/G, Y/R, Y/G |
 
 ### Free spare pins not yet used
@@ -77,12 +80,9 @@ now-deleted emissions equipment (EGR, purge canister, etc):
 
 | Pin | Wire Color |
 | --- | --- |
-| 3V | R/Y |
-| 3J | R |
 | 1U | V/Y |
 | 3Q | W/L |
 | 2A | R/G |
-| 3U | L/O |
 | 1K | L/W |
 | 3R | -- (marked spare on diagram) |
 | 3P | -- (marked spare on diagram) |
@@ -116,7 +116,6 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 
 | Pin | Label | Notes |
 | --- | --- | --- |
-| D9 | MAP | External MAP input, unused since on-board MAP is selected |
 | B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
 
 ## Oil Temp Sensor Calibration
