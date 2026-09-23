@@ -118,38 +118,31 @@ Confirmed against the board's own connector CSVs (connector_B/C/D):
 | --- | --- | --- |
 | B7 | VVT1 / Low Side 1 | Low side output, has flyback diode |
 
-## Drive-By-Wire ETB Conversion (in progress)
+## Drive-By-Wire ETB Conversion
 
-Throttle body: Ford ETC module 12C508, connector C1189 (BK). Confirmed
-pinout from the throttle body's own connector, not yet from rusEFI's side:
+Throttle body: Ford ETC module 12C508, connector C1189 (BK).
 
-| TB Pin | Circuit | Function |
-| --- | --- | --- |
-| 1 | BN | TPS1 Negative Slope |
-| 2 | BU-OG | ETC Return (ground) |
-| 3 | YE | ETC Reference (+5V) |
-| 4 | GN-VT | TPS2 Positive Slope |
-| 5 | YE-VT (18ga) | Motor + (TACM+) |
-| 6 | BU-GN (18ga) | Motor - (TACM-) |
+| TB Pin | Circuit | Function | Miata Harness Pin | rusEFI Pin |
+| --- | --- | --- | --- | --- |
+| 1 | BN | TPS1 Negative Slope | 3E (existing wire, reused from stock cable-throttle TPS) | D13 |
+| 2 | BU-OG | ETC Return (ground) | 3F (tap existing sensor ground wire) | C11 |
+| 3 | YE | ETC Reference (+5V) | 2I (tap existing +5V wire) | C1 |
+| 4 | GN-VT | TPS2 Positive Slope | 1J (new wire) | C14 (TPS2) |
+| 5 | YE-VT (18ga) | Motor + (TACM+) | 1U (new wire) | A5 (DC1+ H-Bridge Output) |
+| 6 | BU-GN (18ga) | Motor - (TACM-) | 3Q (new wire) | A1 (DC1-) |
 
-rusEFI-side assignment so far:
-
-| Function | rusEFI Pin | Status |
-| --- | --- | --- |
-| TPS1 (Primary) | D13 | confirmed, reused from stock cable-throttle TPS pin |
-| TPS2 (Secondary) | C14 (TPS2) | reserved - freed by removing Rear Diff Temp |
-| Motor driver (DC1_PWM, DC1_DIR, DC1_DIS, OUT_DC1+/-) | unknown | NOT yet found - not on connector B/C/D CSVs, likely on connector A (no data) or find via ETB#1 Dir #1/Dir #2/Control/Disable dropdowns in TunerStudio |
-| ETC Reference (+5V) | -- | use existing Sensor +5V (C1) or dedicated ref, TBD |
-| ETC Return (ground) | -- | use Sensor Signal Ground (C11), TBD |
+Confirmed against connector A pinout table (A5=DC1+ H-Bridge Output blue,
+A1=DC1- white). A3/A4 (grounds) and A7/A8 (vBatt/switched ignition) from
+this same table match what was already in this doc, cross-check passed.
 
 Still open:
-- Motor driver pins unknown - need TunerStudio ETB#1 dropdown screenshots or
-  connector_A.csv
 - Accelerator pedal position sensor (dual channel) not yet planned - needs
   2 more analog inputs, none currently free
-- rusEFI safety requirement: both TPS1 and TPS2 must be wired (per rusEFI
-  Electronic Throttle Body Configuration Guide) - confirmed decision to
-  wire both, not just one
+- rusEFI requires both TPS1 and TPS2 wired for safety (confirmed decision:
+  wiring both, not just one)
+- TunerStudio setup not yet done: set ETB#1 Dir #1/Control to A5, ETB#1
+  Dir #2 (or leave per H-bridge type) accordingly, set TPS1/TPS2 inputs,
+  run ETB auto-calibrate per rusEFI's Electronic Throttle Body guide
 
 ## Sensor Calibrations
 
