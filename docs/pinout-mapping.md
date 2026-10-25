@@ -19,7 +19,7 @@ reuse existing wires without repinning the factory connector.
 | 1A | Battery Constant +12V | Permanent +12V | L/R |
 | 1B | Switched Ignition +12V | A8 | W/R |
 | 1D | CAN Bus High (repurposed Data Link Connector wire) | PD0 | G/W |
-| 1E | Check Engine Light (MIL) - SKIPPED, not being used on this build | -- | W/L |
+| 1E | Check Engine Light (MIL), factory wire to instrument cluster lamp | B2 (injector output 5, used as plain low side output) | W/L |
 | 1F | Brake Light Switch | C9 (BUTTON3) | G |
 | 1I | A/C Condenser Fan Relay | B9 | L/W |
 | 1J | (free - was Rear Differential Temp, removed to free C14 for ETB TPS2) | -- | -- |
@@ -159,6 +159,12 @@ See [Sensor Calibrations](sensor-calibrations.md) for thermistor curves
 
 ## Hardware notes
 
+- Check Engine Light: set Output to B2 on the Check Engine Light settings page in
+  TunerStudio (the page also has min/max battery, MAP, IAT and TPS voltage limits
+  that decide when the light trips). B2 is a low side driver, which suits the
+  factory lamp, normally lit by the PCM grounding the 1E wire. B10 (Coil 6) was
+  rejected because the coil outputs were listed as 5V logic in the original
+  notes, not verified as able to sink a lamp. Not yet burned or tested.
 - IAC solenoid is 3-pin: 1 signal wire (3O, to B17), plus power and ground.
   Power ties into switched ignition power (can share 1B/A8 circuit), ground
   ties into Power Ground (3A/3B/3C, not Sensor Ground - this is an actuator,
