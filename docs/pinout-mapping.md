@@ -66,8 +66,8 @@ Alternator Settings: Enabled, smart PID control, control output B18, target
 | 3I | Clutch Pedal Switch / Launch Control Activate | D2 (BUTTON1) | BR/W |
 | 3N | Fuel Pump Relay | B16 | LG |
 | 3O | Idle Air Control Solenoid | B17 | V/R |
-| 3S | Coil 3 (Cyl 4 Seq) | B12 | GY |
-| 3T | Coil 4 (Cyl 2 Seq) | B11 | GY/B |
+| 3S | Coil 3 (Cyl 4 Seq) - PLANNED for later, not wired or set in tune yet | B12 | GY |
+| 3T | Coil 4 (Cyl 2 Seq) - PLANNED for later, not wired or set in tune yet | B11 | GY/B |
 | 3U | CAN Bus High tap - to ESP32 CAN display | PD0 (same bus as 1D) | L/O |
 | 3V | CAN Bus Low tap - to ESP32 CAN display | PD1 (same bus as 1L) | R/Y |
 | 3W-3Z | Fuel Injectors 1-4 | B6, B5, B4, B3 | Y/B, V/G, Y/R, Y/G |
@@ -159,6 +159,12 @@ See [Sensor Calibrations](sensor-calibrations.md) for thermistor curves
 
 ## Hardware notes
 
+- Sequential ignition is planned for later. Right now the tune uses the wasted
+  spark layout: Ignition Output 1 on B15 and Ignition Output 3 on B14; Outputs 2
+  and 4 are NONE and B12/B11 are unused. When wiring sequential, confirm the ignition mode
+  field and how rusEFI maps outputs to cylinders. The tool labels B14 as
+  "Ignition Cylinder 3", while the Coil 3/Coil 4 cylinder labels in this doc came
+  from an aftermarket board's naming and may not match.
 - Check Engine Light: set Output to B2 on the Check Engine Light settings page in
   TunerStudio (the page also has min/max battery, MAP, IAT and TPS voltage limits
   that decide when the light trips). B2 is a low side driver, which suits the
